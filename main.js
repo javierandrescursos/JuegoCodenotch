@@ -8,7 +8,7 @@ var arrayVida = [20, 30, 10, 10];
 // Esto te lo devulve el Switch Case Relleno
 let tipoAtaque_1 = "";
 let tipoAtaque_2 = "";
-
+let ataque = "";
 
 //Te van a dar un número dependiendo del gallo que hayan elegido
 let gallo_1;
@@ -51,24 +51,31 @@ class ControlJuego {
 
         switch (numeroTecla) {
             case 65:
-                console.log("aranazo");
+                ataque = "Aranazo";
+                console.log("Estoy dando un aranazo");
                 break;
+
             case 83:
-                console.log("Patadon");
+                ataque = "Patadon";
+                console.log("Estoy dando un Patadon");
                 break;
 
             case 68:
-                console.log("cabezazo");
+                ataque = "Picotazo";
+                console.log("Estoy dando un picotazo");
                 break;
 
             case 74:
-                console.log("aranazo");
+                ataque = "Aranazo";
+                console.log("Estoy dando un aranazo");
                 break;
             case 75:
-                console.log("Patadon");
+                ataque = "Patadon";
+                console.log("Estoy dando un Patadon");
                 break;
             case 76:
-                console.log("cabezazo");
+                ataque = "Picotazo"
+                console.log("Estoy dando un picotazo");
                 break;
 
             default:
@@ -96,7 +103,7 @@ function eligeControl() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-var imagenesGallos = ["images/gallo1.png", "images/gallo2.png", "images/gallo3.png", "images/gallo4.png"];
+var imagenesGallos = ["gallo1.png", "gallo2.png", "gallo3.png", "gallo4.png"];
 var descripcionGallos = ["Este es nuestro Gallo #1. Su nombre es Kellogs. Tiene una fuerza máxima de 7 y una salud máxima de 20.",
     "Este es nuestro Gallo #2. Su nombre es Manel Navarro. Tiene una fuerza máxima de 5 y una salud máxima de 25.",
     "Este es nuestro Gallo #3. Su nombre es Claudio. Tiene una fuerza máxima de 8 y una salud máxima de 18.",
@@ -360,7 +367,7 @@ function quitarVida(tipoAtaque_1, tipoAtaque_2) {
 
 
 // }
-function crearGallosElegidos(numeroGallo1,numeroGallo2){
+function crearGallosElegidos(numeroGallo1, numeroGallo2) {
     gallo_1 = crearGallo(numeroGallo1);
     gallo_2 = crearGallo(numeroGallo2);
 }
