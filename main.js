@@ -371,3 +371,39 @@ function crearGallosElegidos(numeroGallo1, numeroGallo2) {
     gallo_1 = crearGallo(numeroGallo1);
     gallo_2 = crearGallo(numeroGallo2);
 }
+
+var vida = 100;
+var idIterval = setInterval(function () {
+    // disminuye en 5 el progeso
+    vida -= 20;
+    $('#bar').css('width', vida + '%');
+    var img = document.getElementById("imagengallo")
+    if (vida > 25) {
+        img.src = "images/gallo4.png"
+    }
+    else {
+        img.src = "images/gallo4herido.png";
+    };
+    //Si llegó a 0 elimino el intervalo
+    if (vida == 0) {
+        alert("KO");
+    }
+}, 800)
+
+var vida2 = 100;
+var idIterval = setInterval(function () {
+    // disminuye en 5 el progeso
+    vida2 -= 10;
+    $('#bar2').css('width', vida2 + '%');
+    var img = document.getElementById("imagengallo2")
+    if (vida2 > 25) {
+        img.src = "images/gallo2.png"
+    }
+    else {
+        img.src = "images/gallo2herido.png";
+    };
+    //Si llegó a 0 elimino el intervalo
+    if (vida2 == 0) {
+        alert("KO");
+    }
+}, 800)
