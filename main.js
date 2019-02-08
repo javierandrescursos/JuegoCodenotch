@@ -190,6 +190,47 @@ function nuevoBatalla() {
         console.log(`Gana ${gallo4.nombre} (${gallo4.getFuerza}) a ${gallo3.nombre} (${gallo3.getFuerza})! Felicidadades ${gallo4.dueño}!`)
     }
 
+}
 
+class ControlJuego {
+
+    ejecutaAccion(numeroTecla) {
+
+        switch (numeroTecla) {
+            case 65:
+                console.log("aranazo");
+                break;
+            case 83:
+                console.log("Patadon");
+                break;
+
+            case 68:
+                console.log("cabezazo");
+                break;
+
+            case 74:
+                console.log("aranazo");
+                break;
+            case 75:
+                console.log("Patadon");
+                break;
+            case 76:
+                console.log("cabezazo");
+                break;
+
+            default:
+                break;
+        }
+    }
 
 }
+
+function eligeControl() {
+    let controles = new ControlJuego();
+    $(document).keydown(function (event) {
+        controles.ejecutaAccion(event.which);
+    });
+}
+
+
+eligeControl();
