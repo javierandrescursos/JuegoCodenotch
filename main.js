@@ -96,7 +96,7 @@ function eligeControl() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-var imagenesGallos = ["gallo1.png", "gallo2.png", "gallo3.png", "gallo4.png"];
+var imagenesGallos = ["images/gallo1.png", "images/gallo2.png", "images/gallo3.png", "images/gallo4.png"];
 var descripcionGallos = ["Este es nuestro Gallo #1. Su nombre es Kellogs. Tiene una fuerza máxima de 7 y una salud máxima de 20.",
     "Este es nuestro Gallo #2. Su nombre es Manel Navarro. Tiene una fuerza máxima de 5 y una salud máxima de 25.",
     "Este es nuestro Gallo #3. Su nombre es Claudio. Tiene una fuerza máxima de 8 y una salud máxima de 18.",
