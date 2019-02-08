@@ -144,3 +144,10 @@ to{opacity:1}
 from{opacity:.4}
  to{opacity:1}
 }
+ 
+div.pelea-ganada{
+  margin: auto;
+  height: 338px;
+  width: 600px;
+  background-image: url(images/fuegos.gif);
+}

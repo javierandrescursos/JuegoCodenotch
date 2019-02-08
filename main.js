@@ -1,80 +1,33 @@
-var arrayEspecie = ["Gallo", "Gallo", "Gallo", "Gallo"];
-var arrayPatas = [2, 2, 4, 2];
-var arrayGritito = ["Pio Pio", "Cuak", "qui quiri qui", null];
-var arrayVuela = [true, false, false, true];
-var arrayColor = ["Amarillo", "Blanco", "Naranja", "Negro"];
-var arrayAlas = ["Pequeñas", "Muslitos", "Jugosas", "Grandes"];
 
+var arrayGritito = ["Pio Pio", "Cuak", "qui quiri qui", null];
 var arrayNombreGallo = ["Claudio", "Kellogs", "ManelNavarro", "Rafaelito"];
 var arrayFuerzaGallo = [5, 8, 4, 7];
-var arrayDueñoGallo = ["Rafa", "Jacobo", "JaviProfesor", "Charly"];
-var arrayPuntosGallo = [0, 0, 0, 0];
+var arrayPlayerGallo = ["Rafa", "Jacobo", "JaviProfesor", "Charly"];
+var arrayVida = [20, 30, 10, 10];
 
-class AnimalClass {
-
-    constructor(especie = "perro", patas, gritito, vuela = false) {
-        this.especie = especie;
-        this.patas = patas;
-        this.gritito = gritito;
-        this.vuela = vuela;
-    }
-
-    get getVuela() { return this.vuela; }
-    set setVuela(capacidadVolar) { this.vuela = capacidadVolar; }
-
-    gritar() {
-        console.log(`El sonido de la especie ${this.especie} es ${this.gritito}`);
-    }
-
-    tipoAlimentación(tipoAlimento) {
-        console.log(`Este animal come: ${tipoAlimento}`);
-    }
-
-}
-
-class PajaroClass extends AnimalClass {
-    constructor(especie, patas, gritito, vuela, color, alas) {
-        super(especie, patas, gritito, vuela);
-        this.color = color;
-        this.alas = alas;
-    }
-
-    volar(animal, puedoVolar) {
-        if (animal.getVuela) {
-            console.log("Ya puedo volar por mi mismo");
-            return;
-        }
-        animal.setVuela = puedoVolar;
-        let textoVolar = animal.getVuela ? "Ahora puedo volar" : "Todavia no puedo volar";
-        console.log(textoVolar);
-    }
-
-    planear() {
-        console.log("Soy capaz de planear");
-    }
-    cazar(especie) {
-        console.log(`Soy un ${especie} y puedo cazar gatos!
-        Aquí tendría que ir la lógica de destruir un gato.`);
-    }
+// Esto te lo devulve el Switch Case Relleno
+let tipoAtaque_1 = "";
+let tipoAtaque_2 = "";
 
 
-}
-/*  2. Definir la funcion crearPajaro.
-      - Se creara de la misma forma que hemos creado los otros animales.*/
+//Te van a dar un número dependiendo del gallo que hayan elegido
+let gallo_1;
+let gallo_2;
 
-class GalloClass extends PajaroClass {
-    constructor(especie, patas, gritito, vuela, color, alas, nombre, fuerza, dueño, puntos) {
-        super(especie, patas, gritito, vuela, color, alas);
+
+class GalloClass {
+    constructor(player, gritito, nombre, fuerza, vida) {
         this.nombre = nombre;
-        this.fuerza = Math.floor(Math.random() * (fuerza + 1)) + 0;
-        this.dueño = dueño;
-        this.puntos = puntos;
+        this.gritito = gritito;
+        this.fuerza = Math.floor(Math.random() * fuerza);
+        this.vida = vida;
+        this.player = player;
     }
 
     darPicotazo() {
         console.log(" hace un taladracabezas");
     }
-    darArañazo() {
+    darAranazo() {
         console.log("araña ojos");
     }
     darPatadon() {
@@ -82,6 +35,10 @@ class GalloClass extends PajaroClass {
     }
 
     get getFuerza() { return this.fuerza; }
+    set setFuerza(valor) { this.fuerza = valor }
+
+    get getVida() { return this.vida; }
+    set setVida(valor) { this.vida = valor }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -191,10 +148,11 @@ function siguiente2() {
     if (x >= imagenesGallos.length) {
         x = 0;
     }
-
     sliderImagen.src = imagenesGallos[x];
     sliderDescripcion.innerHTML = descripcionGallos[x];
     sliderFraccion.innerHTML = fraccionGallos[x];
+
+
 }
 
 function anterior2() {
@@ -207,11 +165,54 @@ function anterior2() {
     if (x < 0) {
         x = imagenesGallos.length - 1;
     }
-
     sliderImagen.src = imagenesGallos[x];
     sliderDescripcion.innerHTML = descripcionGallos[x];
     sliderFraccion.innerHTML = fraccionGallos[x];
 }
+
+function crearGallo(i) {
+    var gallo = new GalloClass(arrayPlayerGallo[i], arrayGritito[i], arrayNombreGallo[i], arrayFuerzaGallo[i], arrayVida[i]);
+    return gallo;
+}
+
+function comparacionAtaque(tipoAtaque_1, tipoAtaque_2) {
+    if (tipoAtaque_1 === "Patadon") {
+        if (tipoAtaque_2 === "Picotazo") {
+            return;
+        } else if (tipoAtaque_2 === "Aranazo") {
+            return 2;
+        }
+    } else if (tipoAtaque_1 === "Picotazo") {
+        if (tipoAtaque_2 === "Patadon") {
+            return 2;
+        } else if (tipoAtaque_2 === "Aranazo") {
+            return 1;
+        }
+    } else if (tipoAtaque_1 === "Aranazo") {
+        if (tipoAtaque_2 === "Patadon") {
+            return 2;
+        } else if (tipoAtaque_2 === "Picotazo") {
+            return 1;
+        }
+    } else {
+        return 0;
+    }
+}
+
+
+
+function quitarVida(tipoAtaque_1, tipoAtaque_2) {
+    if (comparacionAtaque(tipoAtaque_1, tipoAtaque_2) == 1) {
+        gallo_2.setVida = gallo_2.getVida - gallo_1.getFuerza;
+        console.log(gallo_1.nombre + " le ha quitado " + gallo_2.getFuerza + " de fuerza a " + gallo_2.nombre);
+    } else if (comparacionAtaque(tipoAtaque_1, tipoAtaque_2) == 2) {
+        gallo_1.setVida = getVida - gallo_1.getFuerza;
+        console.log(gallo_2.nombre + " le ha quitado " + gallo_1.getFuerza + " de fuerza a " + gallo_1.nombre);
+    } else {
+        console.log('Empate');
+    }
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AQUÍ TERMINA LA PARTE DE JACOBO: LÓGICA DEL SELECTOR
@@ -359,3 +360,7 @@ function anterior2() {
 
 
 // }
+function crearGallosElegidos(numeroGallo1,numeroGallo2){
+    gallo_1 = crearGallo(numeroGallo1);
+    gallo_2 = crearGallo(numeroGallo2);
+}
