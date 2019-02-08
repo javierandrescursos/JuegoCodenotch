@@ -7,3 +7,10 @@ body{
     width:30%;
     margin-left:30%;
 }
+ 
+div.pelea-ganada{
+  margin: auto;
+  height: 338px;
+  width: 600px;
+  background-image: url(images/fuegos.gif);
+}
