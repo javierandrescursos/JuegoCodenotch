@@ -1,9 +1,9 @@
-$(document).ready(function () {
+
     var arrayGritito = ["Pio Pio", "Cuak", "qui quiri qui", null];
     var arrayNombreGallo = ["Claudio", "Kellogs", "ManelNavarro", "Rafaelito"];
     var arrayFuerzaGallo = [5, 8, 4, 7];
     var arrayPlayerGallo = ["Rafa", "Jacobo", "JaviProfesor", "Charly"];
-    var arrayVida = [20, 30, 10, 10];
+    var arrayVida = [20, 25, 18, 13];
 
     // Esto te lo devulve el Switch Case Relleno
     let tipoAtaque_1 = "";
@@ -51,30 +51,30 @@ $(document).ready(function () {
 
             switch (numeroTecla) {
                 case 65:
-                    ataque = "Aranazo";
+                    tipoAtaque_1 = "Aranazo";
                     console.log("Estoy dando un aranazo");
                     break;
 
                 case 83:
-                    ataque = "Patadon";
+                    tipoAtaque_1 = "Patadon";
                     console.log("Estoy dando un Patadon");
                     break;
 
                 case 68:
-                    ataque = "Picotazo";
+                    tipoAtaque_1 = "Picotazo";
                     console.log("Estoy dando un picotazo");
                     break;
 
                 case 74:
-                    ataque = "Aranazo";
+                    tipoAtaque_2 = "Aranazo";
                     console.log("Estoy dando un aranazo");
                     break;
                 case 75:
-                    ataque = "Patadon";
+                    tipoAtaque_2 = "Patadon";
                     console.log("Estoy dando un Patadon");
                     break;
                 case 76:
-                    ataque = "Picotazo"
+                    tipoAtaque_2 = "Picotazo"
                     console.log("Estoy dando un picotazo");
                     break;
 
@@ -205,22 +205,24 @@ $(document).ready(function () {
             return 0;
         }
     }
-
+//////////////////////// siempre devuelve empate
 
 
     function quitarVida(tipoAtaque_1, tipoAtaque_2) {
         if (comparacionAtaque(tipoAtaque_1, tipoAtaque_2) == 1) {
             gallo_2.setVida = gallo_2.getVida - gallo_1.getFuerza;
             console.log(gallo_1.nombre + " le ha quitado " + gallo_2.getFuerza + " de fuerza a " + gallo_2.nombre);
+            barravida(gallo_2.getVida,'#bar2',gallo_1.getFuerza)
         } else if (comparacionAtaque(tipoAtaque_1, tipoAtaque_2) == 2) {
             gallo_1.setVida = getVida - gallo_1.getFuerza;
             console.log(gallo_2.nombre + " le ha quitado " + gallo_1.getFuerza + " de fuerza a " + gallo_1.nombre);
+            barravida(gallo_1.getVida,'#bar1',gallo_2.getFuerza)
         } else {
             console.log('Empate');
         }
     }
 
-});
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AQUÍ TERMINA LA PARTE DE JACOBO: LÓGICA DEL SELECTOR
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -372,38 +374,39 @@ function crearGallosElegidos(numeroGallo1, numeroGallo2) {
     gallo_2 = crearGallo(numeroGallo2);
 }
 
-var vida = 100;
-var idIterval = setInterval(function () {
+
+function barravida(vidaactual,barragallo, fuerzagallo){
+
     // disminuye en 5 el progeso
-    vida -= 20;
-    $('#bar').css('width', vida + '%');
+    vidaactual -= fuerzagallo;
+    $(barragallo).css('width', vidaactual + '%');
     var img = document.getElementById("imagengallo")
-    if (vida > 25) {
+    if (vidaactual > 25) {
         img.src = "images/gallo4.png"
     }
     else {
         img.src = "images/gallo4herido.png";
     };
     //Si llegó a 0 elimino el intervalo
-    if (vida == 0) {
+    if (vidaactual == 0) {
         alert("KO");
     }
-}, 800)
+}
 
-var vida2 = 100;
-var idIterval = setInterval(function () {
-    // disminuye en 5 el progeso
-    vida2 -= 10;
-    $('#bar2').css('width', vida2 + '%');
-    var img = document.getElementById("imagengallo2")
-    if (vida2 > 25) {
-        img.src = "images/gallo2.png"
-    }
-    else {
-        img.src = "images/gallo2herido.png";
-    };
-    //Si llegó a 0 elimino el intervalo
-    if (vida2 == 0) {
-        alert("KO");
-    }
-}, 800)
+// var vida2 = 100;
+// var idIterval = setInterval(function () {
+//     // disminuye en 5 el progeso
+//     vida2 -= 10;
+//     $('#bar2').css('width', vida2 + '%');
+//     var img = document.getElementById("imagengallo2")
+//     if (vida2 > 25) {
+//         img.src = "images/gallo2.png"
+//     }
+//     else {
+//         img.src = "images/gallo2herido.png";
+//     };
+//     //Si llegó a 0 elimino el intervalo
+//     if (vida2 == 0) {
+//         alert("KO");
+//     }
+// }, 800)
