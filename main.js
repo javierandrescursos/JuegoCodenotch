@@ -66,15 +66,15 @@ $(document).ready(function () {
                     break;
 
                 case 74:
-                tipoAtaque_2 = "Aranazo";
+                    tipoAtaque_2 = "Aranazo";
                     console.log("Estoy dando un aranazo");
                     break;
                 case 75:
-                tipoAtaque_2 = "Patadon";
+                    tipoAtaque_2 = "Patadon";
                     console.log("Estoy dando un Patadon");
                     break;
                 case 76:
-                tipoAtaque_2 = "Picotazo"
+                    tipoAtaque_2 = "Picotazo"
                     console.log("Estoy dando un picotazo");
                     break;
 
