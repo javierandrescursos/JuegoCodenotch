@@ -1,9 +1,136 @@
-body{
+/* body{
     background-image: url(ring.jpg);
-}
+} */
 
-#div1{border: 1px solid black;
+.div1{border: 1px solid black;
     background-color:lightblue;
     width:30%;
     margin-left:30%;
+}
+
+.div2{border: 1px solid black;
+    background-color:lightblue;
+    width:30%;
+    margin-left:30%;
+}
+
+.div3{border: 1px solid black;
+    background-color:lightblue;
+    width:30%;
+    margin-left:30%;
+}
+
+#descripcionId, #fraccionId{
+    color:black;
+    text-align: center;
+    font-size: 30px;
+}
+
+#descripcionId2, #fraccionId2{
+    color:black;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+#imagenesGallosId{
+    width: 90%;
+    max-height: 700px;
+    position:relative;
+    margin:auto;
+    margin-left:5%;
+   }
+
+#imagenesGallosId2{
+    width: 90%;
+    max-height: 700px;
+    position:relative;
+    margin:auto;
+    margin-left:5%;
+   }
+
+
+.mySlides{
+ display:none;
+}
+
+.prev, .next{
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    width:auto;
+    margin-top:-22px;
+    padding:16px;
+    color:black;
+    font-weight:bold;
+    font-size:18px;
+    transition:0.6s ease;
+    border-radius:0 3px 3px 0;
+   }
+
+.next{
+    margin-left:28.5%;
+}
+
+.prev:hover, .next:hover{
+ background-color:rgba(0,0,0,0.8);
+}
+
+
+.prev2, .next2{
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    width:auto;
+    margin-top:30%;
+    padding:16px;
+    color:black;
+    font-weight:bold;
+    font-size:18px;
+    transition:0.6s ease;
+    border-radius:0 3px 3px 0;
+   }
+
+.next2{
+    margin-left:28.5%;
+}
+
+.prev2:hover, .next2:hover{
+ background-color:rgba(0,0,0,0.8);
+}
+
+
+.text{
+    color:black;
+    font-size:15px;
+    padding:8px 12px;
+    position:absolute;
+    bottom:8px;
+    width:100%;
+    text-align:center;
+}
+   
+.numbertext{
+ color:black;
+ font-size:12px;
+ padding:8px 12px;
+ position:absolute;
+ top:0;
+}
+
+.fade{
+    -webkit-animation-name:fade;
+    -webkit-animation-duration:1.5s;
+    animation-name:fade;
+    animation-duration:1.5s;
+}
+   
+@-webkit-keyframes fade{
+from{opacity:.4}
+to{opacity:1}
+}
+   
+@keyframes fade{
+from{opacity:.4}
+ to{opacity:1}
 }
