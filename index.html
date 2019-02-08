@@ -42,11 +42,11 @@
 
 
 
-
+    <!-- 
     <div id="div1">
         <div class="container">
             <div class="row">
-                <div class="col-md-auto">
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3">
 
                     <h1>Crear tu propia pelea de gallos</h1>
                     <button onclick="nuevoBatalla();">Nueva pelea de gallos</button>
@@ -80,34 +80,57 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+
+
+    <div class="container col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="divGallo1 col-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="row">
+                    <p id="fraccionId">1 / 4</p>
+                </div>
+                <div class="row">
+                    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><button class="prev col-1 col-sm-1 col-md-1 col-lg-1"
+                            onclick="anterior()">&#10094;</button></div>
+
+                    <img id="imagenesGallosId" src="images/gallo1.png" width="auto" height="700px" />
+                    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><button class="next col-1 col-sm-1 col-md-1 col-lg-1"
+                            onclick="siguiente()">&#10095;</button></div>
+                </div>
+
+
+                <div class="row">
+                    <p id="descripcionId">Este es nuestro Gallo #1. Su nombre es Kellogs. Tiene una fuerza máxima de 7 y
+                        una
+                        salud
+                        máxima de 20.</p>
+                </div>
+
+            </div>
+
+            <div class="divGallo2 col-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="row">
+                    <p id="fraccionId">2 / 4</p>
+                </div>
+                <div class="row">
+                    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><button class="prev col-1 col-sm-1 col-md-1 col-lg-1"
+                            onclick="anterior2()">&#10094;</button></div>
+
+                    <img id="imagenesGallosId2" src="images/gallo2.png" width="auto" height="700px" />
+                    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><button class="next col-1 col-sm-1 col-md-1 col-lg-1"
+                            onclick="siguiente2()">&#10095;</button></div>
+
+                    <div class="row">
+                        <p id="descripcionId">Este es nuestro Gallo #2. Su nombre es Manel Navarro. Tiene una fuerza máxima de 5 y una salud máxima de 25.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
-    <h1>Crear tu propia pelea de gallos</h1>
-    <button onclick="crearGallosElegidos(0,1);quitarVida('Aranazo', 'Picotazo'); ">Nueva pelea de gallos</button>
-
-    
-   
-
-    <div class="div1">
-        <button class="prev" onclick="anterior()">&#10094;</button>
-        <p id="fraccionId">1 / 4</p>
-        <img id="imagenesGallosId" src="images/gallo1.png" width="700px" height="700px" />
-        <p id="descripcionId">Este es nuestro Gallo #1. Su nombre es Kellogs. Tiene una fuerza máxima de 7 y una salud
-            máxima de 20.</p>
-        <button class="next" onclick="siguiente()">&#10095;</button>
-    </div>
-
-    <div class="div2">
-        <button class="prev2" onclick="anterior2()">&#10094;</button>
-        <p id="fraccionId2">2 / 4</p>
-        <img id="imagenesGallosId2" src="images/gallo2.png" width="700px" height="700px" />
-        <p id="descripcionId2">Este es nuestro Gallo #2. Su nombre es Manel Navarro. Tiene una fuerza máxima de 5 y una
-            salud máxima de 25.</p>
-        <button class="next2" onclick="siguiente2()">&#10095;</button>
-    </div>
-
-
-    </div>
     <script src="main.js"></script>
     <div id="final-pelea"></div>
 </body>
