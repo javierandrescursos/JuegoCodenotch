@@ -15,7 +15,6 @@
     let gallo_2;
     let x = 0;
 
-
     class GalloClass {
         constructor(player, gritito, nombre, fuerza, vida) {
             this.nombre = nombre;
