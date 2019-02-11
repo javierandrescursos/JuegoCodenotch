@@ -1,6 +1,6 @@
 
     var arrayGritito = ["Pio Pio", "Cuak", "qui quiri qui", null];
-    var arrayNombreGallo = ["Claudio", "Kellogs", "ManelNavarro", "Rafaelito"];
+    var arrayNombreGallo = ["Kellogs", "ManelNavarro", "Claudio", "Rafaelito"];
     var arrayFuerzaGallo = [5, 8, 4, 7];
     var arrayPlayerGallo = ["Rafa", "Jacobo", "JaviProfesor", "Charly"];
     var arrayVida = [20, 30, 10, 10];
@@ -13,6 +13,7 @@
     //Te van a dar un número dependiendo del gallo que hayan elegido
     let gallo_1;
     let gallo_2;
+    let x = 0;
 
 
     class GalloClass {
@@ -85,12 +86,10 @@
 
     }
 
-    function eligeControl() {
         let controles = new ControlJuego();
         $(document).keydown(function (event) {
             controles.ejecutaAccion(event.which);
         });
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // AQUÍ TERMINA LA PARTE DE BÁRBARA: CONTROLES DEL JUEGO
@@ -104,77 +103,71 @@
 
 
     var imagenesGallos = ["images/gallo1.png", "images/gallo2.png", "images/gallo3.png", "images/gallo4.png"];
-    var descripcionGallos = ["Este es nuestro Gallo #1. Su nombre es Kellogs. Tiene una fuerza máxima de 7 y una salud máxima de 20.",
-        "Este es nuestro Gallo #2. Su nombre es Manel Navarro. Tiene una fuerza máxima de 5 y una salud máxima de 25.",
-        "Este es nuestro Gallo #3. Su nombre es Claudio. Tiene una fuerza máxima de 8 y una salud máxima de 18.",
-        "Este es nuestro Gallo #4. Su nombre es Rafaelito. Tiene una fuerza máxima de 10 y una salud máxima de 13."
-    ]
+    function descripcionGallos(x){return `Este es nuestro Gallo #${x+1}. Su nombre es ${arrayNombreGallo[x]}. Tiene una fuerza máxima de ${arrayFuerzaGallo[x]} y una salud máxima de ${arrayVida[x]}`;}
     var fraccionGallos = ["1 / 4", "2 / 4", "3 / 4", "4 / 4",]
 
-    var x = 0;
+    var gallo1_seleccionado = 0;
+    var gallo2_seleccionado = 1;
 
-    function siguiente() {
-        var sliderImagen = document.getElementById("imagenesGallosId");
-        var sliderDescripcion = document.getElementById("descripcionId");
-        var sliderFraccion = document.getElementById("fraccionId");
+    function mostrarGallo(sliderImagen, sliderDescripcion, sliderFraccion, seleccion){
+        sliderImagen.src = imagenesGallos[x];
+        sliderDescripcion.innerHTML = descripcionGallos(x);
+        sliderFraccion.innerHTML = fraccionGallos[x];
+        switch(seleccion){
+            case 1: 
+                gallo1_seleccionado = x;
+                break;
+            case 2: 
+                gallo2_seleccionado = x;
+                break;
+        }
+    }
+
+    function siguiente(seleccion) {
+        switch(seleccion){
+            case 1:
+                var sliderImagen = document.getElementById("imagenesGallosId");
+                var sliderDescripcion = document.getElementById("descripcionId");
+                var sliderFraccion = document.getElementById("fraccionId");
+                x = gallo1_seleccionado;
+                break;
+            case 2:
+                var sliderImagen = document.getElementById("imagenesGallosId2");
+                var sliderDescripcion = document.getElementById("descripcionId2");
+                var sliderFraccion = document.getElementById("fraccionId2");
+                x = gallo2_seleccionado;
+                break;
+        }
 
         x++;
 
         if (x >= imagenesGallos.length) {
             x = 0;
         }
-
-        sliderImagen.src = imagenesGallos[x];
-        sliderDescripcion.innerHTML = descripcionGallos[x];
-        sliderFraccion.innerHTML = fraccionGallos[x];
+        mostrarGallo(sliderImagen, sliderDescripcion, sliderFraccion, seleccion);
     }
 
-    function anterior() {
-        var sliderImagen = document.getElementById("imagenesGallosId");
-        var sliderDescripcion = document.getElementById("descripcionId");
-        var sliderFraccion = document.getElementById("fraccionId");
-
+    function anterior(seleccion) {
+        switch(seleccion){
+            case 1:
+                var sliderImagen = document.getElementById("imagenesGallosId");
+                var sliderDescripcion = document.getElementById("descripcionId");
+                var sliderFraccion = document.getElementById("fraccionId");
+                x = gallo1_seleccionado;
+                break;
+            case 2:
+                var sliderImagen = document.getElementById("imagenesGallosId2");
+                var sliderDescripcion = document.getElementById("descripcionId2");
+                var sliderFraccion = document.getElementById("fraccionId2");
+                x = gallo2_seleccionado;
+                break;
+        }
         x--;
 
         if (x < 0) {
             x = imagenesGallos.length - 1;
-        }
-
-        sliderImagen.src = imagenesGallos[x];
-        sliderDescripcion.innerHTML = descripcionGallos[x];
-        sliderFraccion.innerHTML = fraccionGallos[x];
-    }
-
-    function siguiente2() {
-        var sliderImagen = document.getElementById("imagenesGallosId2");
-        var sliderDescripcion = document.getElementById("descripcionId2");
-        var sliderFraccion = document.getElementById("fraccionId2");
-
-        x++;
-
-        if (x >= imagenesGallos.length) {
-            x = 0;
-        }
-        sliderImagen.src = imagenesGallos[x];
-        sliderDescripcion.innerHTML = descripcionGallos[x];
-        sliderFraccion.innerHTML = fraccionGallos[x];
-
-
-    }
-
-    function anterior2() {
-        var sliderImagen = document.getElementById("imagenesGallosId2");
-        var sliderDescripcion = document.getElementById("descripcionId2");
-        var sliderFraccion = document.getElementById("fraccionId2");
-
-        x--;
-
-        if (x < 0) {
-            x = imagenesGallos.length - 1;
-        }
-        sliderImagen.src = imagenesGallos[x];
-        sliderDescripcion.innerHTML = descripcionGallos[x];
-        sliderFraccion.innerHTML = fraccionGallos[x];
+        }  
+        mostrarGallo(sliderImagen, sliderDescripcion, sliderFraccion, seleccion); 
     }
 
     function crearGallo(i) {
@@ -368,9 +361,9 @@
 
 
 // }
-function crearGallosElegidos(numeroGallo1, numeroGallo2) {
-    gallo_1 = crearGallo(numeroGallo1);
-    gallo_2 = crearGallo(numeroGallo2);
+function crearGallosElegidos() {
+    gallo_1 = crearGallo(gallo1_seleccionado);
+    gallo_2 = crearGallo(gallo2_seleccionado);
 }
 
 

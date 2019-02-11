@@ -83,7 +83,7 @@
     </div> -->
 
     <h1>Crear tu propia pelea de gallos</h1>
-    <button onclick="crearGallosElegidos(0,1);quitarVida(); ">Nueva pelea de gallos</button>
+    <button onclick="crearGallosElegidos();quitarVida(tipoAtaque_1, tipoAtaque_2); ">Nueva pelea de gallos</button>
 
 <!-- SELECTOR DE GALLOS (JACOBO) -->
     <div class="container col-12 col-sm-12 col-md-12 col-lg-12">
@@ -94,11 +94,11 @@
                 </div>
                 <div class="row">
                     <div class="col-1 col-sm-1 col-md-1 col-lg-1"><button class="prev col-1 col-sm-1 col-md-1 col-lg-1"
-                            onclick="anterior()">&#10094;</button></div>
+                            onclick="anterior(1)">&#10094;</button></div>
 
                     <img id="imagenesGallosId" src="images/gallo1.png" width="auto" height="700px" />
                     <div class="col-1 col-sm-1 col-md-1 col-lg-1"><button class="next col-1 col-sm-1 col-md-1 col-lg-1"
-                            onclick="siguiente()">&#10095;</button></div>
+                            onclick="siguiente(1)">&#10095;</button></div>
                 </div>
 
 
@@ -118,12 +118,12 @@
                 <div class="row">
                     <div class="col-1 col-sm-1 col-md-1 col-lg-1">
                         <button class="prev col-1 col-sm-1 col-md-1 col-lg-1"
-                            onclick="anterior2()">&#10094;</button></div>
+                            onclick="anterior(2)">&#10094;</button></div>
 
                     <img id="imagenesGallosId2" src="images/gallo2.png" width="auto" height="700px" />
                     <div class="col-1 col-sm-1 col-md-1 col-lg-1">
                         <button class="next col-1 col-sm-1 col-md-1 col-lg-1"
-                            onclick="siguiente2()">&#10095;</button></div>
+                            onclick="siguiente(2)">&#10095;</button></div>
 
                     <div class="row">
                         <p id="descripcionId2">Este es nuestro Gallo #2. Su nombre es Manel Navarro. Tiene una fuerza máxima de 5 y una salud máxima de 25.</p>
