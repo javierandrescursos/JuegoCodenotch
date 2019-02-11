@@ -1,15 +1,15 @@
-
+$(document).ready(function () {
     var arrayGritito = ["Pio Pio", "Cuak", "qui quiri qui", null];
     var arrayNombreGallo = ["Claudio", "Kellogs", "ManelNavarro", "Rafaelito"];
     var arrayFuerzaGallo = [5, 8, 4, 7];
     var arrayPlayerGallo = ["Rafa", "Jacobo", "JaviProfesor", "Charly"];
-    var arrayVida = [20, 25, 18, 13];
+    var arrayVida = [20, 30, 10, 10];
 
     // Esto te lo devulve el Switch Case Relleno
     let tipoAtaque_1 = "";
     let tipoAtaque_2 = "";
-    let ataque = "";
 
+    let ataque = "";
     //Te van a dar un número dependiendo del gallo que hayan elegido
     let gallo_1;
     let gallo_2;
@@ -205,24 +205,23 @@
             return 0;
         }
     }
-//////////////////////// siempre devuelve empate
 
 
     function quitarVida(tipoAtaque_1, tipoAtaque_2) {
         if (comparacionAtaque(tipoAtaque_1, tipoAtaque_2) == 1) {
             gallo_2.setVida = gallo_2.getVida - gallo_1.getFuerza;
             console.log(gallo_1.nombre + " le ha quitado " + gallo_2.getFuerza + " de fuerza a " + gallo_2.nombre);
-            barravida(gallo_2.getVida,'#bar2',gallo_1.getFuerza)
+            barravida(gallo_2.getVida,'#bar2',gallo_1.getFuerza);
         } else if (comparacionAtaque(tipoAtaque_1, tipoAtaque_2) == 2) {
             gallo_1.setVida = getVida - gallo_1.getFuerza;
             console.log(gallo_2.nombre + " le ha quitado " + gallo_1.getFuerza + " de fuerza a " + gallo_1.nombre);
-            barravida(gallo_1.getVida,'#bar1',gallo_2.getFuerza)
+            barravida(gallo_1.getVida,'#bar1',gallo_2.getFuerza);
         } else {
             console.log('Empate');
         }
     }
 
-
+});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AQUÍ TERMINA LA PARTE DE JACOBO: LÓGICA DEL SELECTOR
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
